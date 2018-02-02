@@ -18,7 +18,6 @@ class OpenMensa:
         param_string = '?'
         if params:
             param_string += urllib.parse.urlencode(params)
-        print(url + param_string)
         req = urllib.request.urlopen(
             url + param_string
         )
@@ -46,36 +45,36 @@ class OpenMensa:
         return OpenMensa.make_json_request('canteens', params)
 
     @staticmethod
-    def canteen(ident):
+    def canteen(canteen_id):
         return OpenMensa.make_json_request(
-            'canteens/{}'.format(ident)
+            'canteens/{}'.format(canteen_id)
         )
 
     @staticmethod
-    def canteen_days(ident, start_date=None):
+    def canteen_days(canteen_id, start_date=None):
         params = {}
         if start_date:
             params['start'] = start_date
 
         return OpenMensa.make_json_request(
-            'canteens/{}/days'.format(ident),
+            'canteens/{}/days'.format(canteen_id),
             params
         )
 
     @staticmethod
-    def canteen_day(ident, date):
+    def canteen_day(canteen_id, date):
         return OpenMensa.make_json_request(
             'canteens/{}/days/{}'.format(
-                ident,
+                canteen_id,
                 date
             ),
         )
 
     @staticmethod
-    def meals_per_day(ident, date):
+    def meals_per_day(canteen_id, date):
         return OpenMensa.make_json_request(
             'canteens/{}/days/{}/meals'.format(
-                ident,
+                canteen_id,
                 date
             ),
         )
