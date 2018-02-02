@@ -27,7 +27,13 @@ class OpenMensa:
         )
 
     @staticmethod
-    def canteens(near_lat_lng=None, near_dist=None, ids=None, has_coords=None):
+    def canteens(near_lat_lng=None, near_dist=None, canteen_ids=None, has_coords=None, limit=10):
+        """Get a list of canteens
+        :param near_lat_lng: position 2 tuple to define search center, example (52.39, 13.12)
+        :param near_dist: search distance in km for near_lat_lng, default: 10
+        :param canteen_ids: list of canteen ids to query
+        :param has_coords: whether to return canteens with or without coordinations
+        """
         params = {}
 
         if near_lat_lng:
@@ -46,12 +52,22 @@ class OpenMensa:
 
     @staticmethod
     def canteen(canteen_id):
-        return OpenMensa.make_json_request(
+        """Get a single canteen identified by canteen_id
+
+        :param canteen_id: id of canteen to query
+        """
+        return OpenMensa.__make_json_request(
             'canteens/{}'.format(canteen_id)
         )
 
     @staticmethod
     def canteen_days(canteen_id, start_date=None):
+        """Get all canteen days
+
+        :param canteen_id: id of canteen to query
+        :param start_date: the date to begin with
+        """
+
         params = {}
         if start_date:
             params['start'] = start_date
@@ -63,7 +79,12 @@ class OpenMensa:
 
     @staticmethod
     def canteen_day(canteen_id, date):
-        return OpenMensa.make_json_request(
+        """Get single canteen day
+
+        :param canteen_id: id of canteen to query
+        :param date: the date to query
+        """
+        return OpenMensa.__make_json_request(
             'canteens/{}/days/{}'.format(
                 canteen_id,
                 date
@@ -72,7 +93,11 @@ class OpenMensa:
 
     @staticmethod
     def meals_per_day(canteen_id, date):
-        return OpenMensa.make_json_request(
+        """Get all meals
+        :param canteen_id: id of canteen to query
+        :param date: date to get the meals for, format: YYYY-MM-DD
+        """
+        return OpenMensa.__make_json_request(
             'canteens/{}/days/{}/meals'.format(
                 canteen_id,
                 date
@@ -81,7 +106,12 @@ class OpenMensa:
 
     @staticmethod
     def meal(canteen_id, date, meal_id):
-        return OpenMensa.make_json_request(
+        """Get single meal
+        :param canteen_id: id of canteen to query
+        :param date: date to get the meal for, format: YYYY-MM-DD
+        :param meal_id: id of meal to query
+        """
+        return OpenMensa.__make_json_request(
             'canteens/{}/days/{}/meals/{}'.format(
                 canteen_id,
                 date,
