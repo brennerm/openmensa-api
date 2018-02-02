@@ -1,8 +1,15 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 import json
 import os
-import urllib.request
-import urllib.parse
+
+try:
+    from urllib.parse import urlparse, urlencode
+    from urllib.request import urlopen, Request
+    from urllib.error import HTTPError
+except ImportError:
+    from urlparse import urlparse
+    from urllib import urlencode
+    from urllib2 import urlopen, Request, HTTPError
 
 
 class OpenMensa:
@@ -17,8 +24,8 @@ class OpenMensa:
 
         param_string = '?'
         if params:
-            param_string += urllib.parse.urlencode(params)
-        req = urllib.request.urlopen(
+            param_string += urlencode(params)
+        req = urlopen(
             url + param_string
         )
 
