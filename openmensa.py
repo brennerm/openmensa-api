@@ -16,7 +16,7 @@ class OpenMensa:
     ENDPOINT = 'http://openmensa.org/api/v2'
 
     @staticmethod
-    def make_json_request(path, params=None):
+    def __make_json_request(path, params=None):
         url = os.path.join(
             OpenMensa.ENDPOINT,
             path
@@ -49,13 +49,13 @@ class OpenMensa:
         if near_dist:
             params['near[dst]'] = near_dist
 
-        if ids:
-            params['ids'] = ','.join([str(ident) for ident in ids])
+        if canteen_ids:
+            params['ids'] = ','.join([str(ident) for ident in canteen_ids])
 
         if has_coords is not None:
             params['hasCoordinates'] = has_coords
 
-        return OpenMensa.make_json_request('canteens', params)
+        return OpenMensa.__make_json_request('canteens', params)
 
     @staticmethod
     def canteen(canteen_id):
@@ -79,7 +79,7 @@ class OpenMensa:
         if start_date:
             params['start'] = start_date
 
-        return OpenMensa.make_json_request(
+        return OpenMensa.__make_json_request(
             'canteens/{}/days'.format(canteen_id),
             params
         )
