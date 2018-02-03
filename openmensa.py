@@ -65,7 +65,7 @@ class OpenMensa:
             params['near[lat]'], params['near[lng]'] = near_lat_lng
 
         if near_dist:
-            params['near[dst]'] = near_dist
+            params['near[dist]'] = near_dist
 
         if canteen_ids:
             params['ids'] = ','.join([str(ident) for ident in canteen_ids])
