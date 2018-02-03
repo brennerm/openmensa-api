@@ -36,7 +36,7 @@ class OpenMensa:
     @staticmethod
     def get_all(method, *args, **kwargs):
         res = []
-        kwargs['page'] = 0
+        kwargs['page'] = 1
 
         while True:
             response = method(*args, **kwargs)
@@ -48,7 +48,6 @@ class OpenMensa:
             kwargs['page'] += 1
 
         return res
-
 
     @staticmethod
     def canteens(near_lat_lng=None, near_dist=None, canteen_ids=None, has_coords=None, page=None, limit=None):
