@@ -1,5 +1,5 @@
 # OpenMensa API
-This project is a Python wrapper for the [OpenMensa API v2](|http://doc.openmensa.org/api/v2/).
+This project is a Python wrapper for the [OpenMensa API v2](http://doc.openmensa.org/api/v2/).
 
 ## Installation
 ```
