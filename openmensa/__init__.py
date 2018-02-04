@@ -41,7 +41,7 @@ class OpenMensa:
 
         # Arguments
 
-        method (callable): OpenMensa method, one of: canteens, canteen_days, meals_per_day
+        method (callable): OpenMensa method, one of: get_canteens, get_canteen_days, get_meals_by_day
         args (list): positional arguments for method
         kwargs (dict): keyword arguments for method
         """
@@ -60,7 +60,7 @@ class OpenMensa:
         return res
 
     @staticmethod
-    def canteens(near_lat_lng=None, near_dist=None, canteen_ids=None, has_coords=None, page=None, limit=None):
+    def get_canteens(near_lat_lng=None, near_dist=None, canteen_ids=None, has_coords=None, page=None, limit=None):
         """Get a list of canteens
 
         # Arguments
@@ -95,7 +95,7 @@ class OpenMensa:
         return OpenMensa.__make_json_request('canteens', params)
 
     @staticmethod
-    def canteen(canteen_id):
+    def get_canteen(canteen_id):
         """Get a single canteen identified by canteen_id
 
         # Arguments
@@ -107,7 +107,7 @@ class OpenMensa:
         )
 
     @staticmethod
-    def canteen_days(canteen_id, start_date=None, page=None, limit=None):
+    def get_canteen_days(canteen_id, start_date=None, page=None, limit=None):
         """Get all canteen days
 
         # Arguments
@@ -134,7 +134,7 @@ class OpenMensa:
         )
 
     @staticmethod
-    def canteen_day(canteen_id, date):
+    def get_canteen_day(canteen_id, date):
         """Get single canteen day
 
         # Arguments
@@ -150,8 +150,8 @@ class OpenMensa:
         )
 
     @staticmethod
-    def meals_per_day(canteen_id, date, page=None, limit=None):
-        """Get all meals
+    def get_meals_by_day(canteen_id, date, page=None, limit=None):
+        """Get all meals for a specific day
 
         # Arguments
 
@@ -177,7 +177,7 @@ class OpenMensa:
         )
 
     @staticmethod
-    def meal(canteen_id, date, meal_id):
+    def get_meal(canteen_id, date, meal_id):
         """Get single meal
 
         # Arguments

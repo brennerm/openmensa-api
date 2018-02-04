@@ -10,7 +10,7 @@ $ pip install openmensa-api
 ## Example
 ```python
 >>> from openmensa import OpenMensa as OM
->>> OM.canteen(63)
+>>> OM.get_canteen(63)
 {  
   'id':63,
   'coordinates':[  
@@ -22,7 +22,7 @@ $ pip install openmensa-api
   'name':'Leipzig, Mensa am Park'
 }
 
->>> OM.meals_per_day(63, '2018-02-05')
+>>> OM.get_meals_by_day(63, '2018-02-05')
 [  
   {  
     'id':3035676,
