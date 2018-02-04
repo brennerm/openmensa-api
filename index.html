@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="None">
+  
+  <link rel="shortcut icon" href="./img/favicon.ico">
+  <title>Home - OpenMensa API v2 Python wrapper</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="./css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="./css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="./css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Home";
+    var mkdocs_page_input_path = "index.md";
+    var mkdocs_page_url = "/";
+  </script>
+  
+  <script src="./js/jquery-2.1.1.min.js"></script>
+  <script src="./js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="./js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="." class="icon icon-home"> OpenMensa API v2 Python wrapper</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href=".">Home</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#openmensa-api">OpenMensa API</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#installation">Installation</a></li>
+        
+            <li><a class="toctree-l3" href="#api-documentation">API Documentation</a></li>
+        
+            <li><a class="toctree-l3" href="#example">Example</a></li>
+        
+        </ul>
+    
+
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">API Documentation</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="openmensa/">OpenMensa</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href=".">OpenMensa API v2 Python wrapper</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Home</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/brennerm/openmensa-api/edit/master/docs/index.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="openmensa-api">OpenMensa API</h1>
+<p>This project is a Python wrapper for the <a href="http://doc.openmensa.org/api/v2/">OpenMensa API v2</a>.</p>
+<h2 id="installation">Installation</h2>
+<pre><code>$ pip install openmensa-api
+</code></pre>
+
+<h2 id="api-documentation"><a href="https://brennerm.github.io/openmensa-api/openmensa/">API Documentation</a></h2>
+<h2 id="example">Example</h2>
+<pre><code class="python">&gt;&gt;&gt; from openmensa import OpenMensa as OM
+&gt;&gt;&gt; OM.get_canteen(63)
+{  
+  'id':63,
+  'coordinates':[  
+    51.3374622576675,
+    12.3781263828278
+  ],
+  'address':'Universitätsstraße 5, 04109 Leipzig',
+  'city':'Leipzig',
+  'name':'Leipzig, Mensa am Park'
+}
+
+&gt;&gt;&gt; OM.get_meals_by_day(63, '2018-02-05')
+[  
+  {  
+    'id':3035676,
+    'notes':[  
+      'Geflügel',
+      'Sesam',
+      'Eier',
+      'glutenhaltiges Getreide',
+      'gebackene Kartoffelspalten',
+      'Kaisergemüse',
+      'Geflügelsoße'
+    ],
+    'prices':{  
+      'pupils':None,
+      'others':6.5,
+      'employees':4.7,
+      'students':2.85
+    },
+    'category':'Schneller Teller',
+    'name':'Hähnchenbrust in Sesampanade'
+  },
+  {  
+    'id':3035677,
+    'notes':[  
+      'Fisch',
+      'Senf',
+      'Milch/ Milchzucker',
+      'Fisch',
+      'glutenhaltiges Getreide',
+      'mit Farbstoff',
+      'Karottengemüse',
+      'Salzkartoffeln',
+      'Paprikareis',
+      'Brokkoligemüse',
+      'Schnittlauch-Sahnesoße'
+    ],
+    'prices':{  
+      'pupils':None,
+      'others':7.0,
+      'employees':5.0,
+      'students':3.15
+    },
+    'category':'Fischgericht',
+    'name':'Kabeljaufilet Müllerinart'
+  },
+  {  
+    'id':3035678,
+    'notes':[  
+      'Rind',
+      'Schwein',
+      'Fleischloses Gericht',
+      'Eier',
+      'Milch/ Milchzucker',
+      'glutenhaltiges Getreide',
+      'mit Farbstoff',
+      'Kochklopse Königsberger Art mit Kapernsoße'
+    ],
+    'prices':{  
+      'pupils':None,
+      'others':3.2,
+      'employees':2.4,
+      'students':1.65
+    },
+    'category':'Hauptkomponente',
+    'name':'Kapernsoße'
+  },
+  {  
+    'id':3035679,
+    'notes':[  
+      'Veganes Gericht',
+      'Schwein'
+    ],
+    'prices':{  
+      'pupils':None,
+      'others':1.25,
+      'employees':0.9,
+      'students':0.5
+    },
+    'category':'Gemüsebeilage',
+    'name':'Karottengemüse'
+  },
+  {  
+    'id':3035680,
+    'notes':[  
+      'Veganes Gericht',
+      'Schwein'
+    ],
+    'prices':{  
+      'pupils':None,
+      'others':1.25,
+      'employees':0.9,
+      'students':0.5
+    },
+    'category':'Gemüsebeilage',
+    'name':'Wirsingkohl mit Speck'
+  },
+  {  
+    'id':3035681,
+    'notes':[  
+      'Veganes Gericht',
+      'Schwein'
+    ],
+    'prices':{  
+      'pupils':None,
+      'others':1.25,
+      'employees':0.9,
+      'students':0.5
+    },
+    'category':'Gemüsebeilage',
+    'name':'Pariser Karotten'
+  },
+  {  
+    'id':3035682,
+    'notes':[  
+
+    ],
+    'prices':{  
+      'pupils':None,
+      'others':1.45,
+      'employees':1.1,
+      'students':0.7
+    },
+    'category':'Gemüsebeilage',
+    'name':'Brokkoligemüse'
+  },
+  {  
+    'id':3035683,
+    'notes':[  
+      'Sulfit/ Schwefeldioxid',
+      'Milch/ Milchzucker',
+      'mit Antioxidationsmitteln',
+      'mit Farbstoff',
+      'Fleischloses Gericht',
+      'Veganes Gericht'
+    ],
+    'prices':{  
+      'pupils':None,
+      'others':1.25,
+      'employees':0.9,
+      'students':0.5
+    },
+    'category':'Sättigungsbeilage',
+    'name':'Paprikareis'
+  },
+  {  
+    'id':3035684,
+    'notes':[  
+      'Sulfit/ Schwefeldioxid',
+      'Milch/ Milchzucker',
+      'mit Antioxidationsmitteln',
+      'mit Farbstoff',
+      'Fleischloses Gericht',
+      'Veganes Gericht'
+    ],
+    'prices':{  
+      'pupils':None,
+      'others':1.25,
+      'employees':0.9,
+      'students':0.5
+    },
+    'category':'Sättigungsbeilage',
+    'name':'Petersilienkartoffeln'
+  },
+  {  
+    'id':3035685,
+    'notes':[  
+      'Sulfit/ Schwefeldioxid',
+      'Milch/ Milchzucker',
+      'mit Antioxidationsmitteln',
+      'mit Farbstoff',
+      'Fleischloses Gericht',
+      'Veganes Gericht'
+    ],
+    'prices':{  
+      'pupils':None,
+      'others':1.25,
+      'employees':0.9,
+      'students':0.5
+    },
+    'category':'Sättigungsbeilage',
+    'name':'Salzkartoffeln'
+  },
+  {  
+    'id':3035686,
+    'notes':[  
+      'Sulfit/ Schwefeldioxid',
+      'Milch/ Milchzucker',
+      'mit Antioxidationsmitteln',
+      'mit Farbstoff',
+      'Fleischloses Gericht',
+      'Veganes Gericht'
+    ],
+    'prices':{  
+      'pupils':None,
+      'others':1.25,
+      'employees':0.9,
+      'students':0.5
+    },
+    'category':'Sättigungsbeilage',
+    'name':'Kartoffelpüree'
+  },
+  {  
+    'id':3035687,
+    'notes':[  
+
+    ],
+    'prices':{  
+      'pupils':None,
+      'others':1.45,
+      'employees':1.1,
+      'students':0.7
+    },
+    'category':'Sättigungsbeilage',
+    'name':'gebackene Kartoffelspalten'
+  },
+  {  
+    'id':3035688,
+    'notes':[  
+      'mit Farbstoff',
+      'Fleischloses Gericht',
+      'Milch/ Milchzucker',
+      'Eier',
+      'glutenhaltiges Getreide',
+      'Tomatensoße'
+    ],
+    'prices':{  
+      'pupils':None,
+      'others':5.5,
+      'employees':3.8,
+      'students':1.95
+    },
+    'category':'Vegetarisches Gericht',
+    'name':'Gemüseauflauf mit Hirtenkäse &amp; Reis'
+  },
+  {  
+    'id':3035689,
+    'notes':[  
+      'Soja',
+      'mit Antioxidationsmitteln',
+      'Veganes Gericht',
+      'gebackene Kartoffelspalten',
+      'Ingwer-Möhrensoße'
+    ],
+    'prices':{  
+      'pupils':None,
+      'others':7.0,
+      'employees':5.0,
+      'students':3.2
+    },
+    'category':'Veganes Gericht',
+    'name':'Gebratener Fenchel'
+  },
+  {  
+    'id':3035690,
+    'notes':[  
+      'mit Antioxidationsmitteln',
+      'mit Farbstoff',
+      'Veganes Gericht',
+      'Soja',
+      'Milch/ Milchzucker',
+      'glutenhaltiges Getreide'
+    ],
+    'prices':{  
+      'pupils':None,
+      'others':5.2,
+      'employees':3.7,
+      'students':1.9
+    },
+    'category':'Pastateller',
+    'name':'Spaghetti'
+  },
+  {  
+    'id':3035691,
+    'notes':[  
+      'mit Antioxidationsmitteln',
+      'mit Farbstoff',
+      'Veganes Gericht',
+      'Soja',
+      'Milch/ Milchzucker',
+      'glutenhaltiges Getreide'
+    ],
+    'prices':{  
+      'pupils':None,
+      'others':5.2,
+      'employees':3.7,
+      'students':1.9
+    },
+    'category':'Pastateller',
+    'name':'Muschelnudeln'
+  },
+  {  
+    'id':3035692,
+    'notes':[  
+      'mit Antioxidationsmitteln',
+      'mit Farbstoff',
+      'Veganes Gericht',
+      'Soja',
+      'Milch/ Milchzucker',
+      'glutenhaltiges Getreide'
+    ],
+    'prices':{  
+      'pupils':None,
+      'others':5.2,
+      'employees':3.7,
+      'students':1.9
+    },
+    'category':'Pastateller',
+    'name':'bunte Farfalle'
+  },
+  {  
+    'id':3035693,
+    'notes':[  
+      'mit Antioxidationsmitteln',
+      'mit Farbstoff',
+      'Veganes Gericht',
+      'Soja',
+      'Milch/ Milchzucker',
+      'glutenhaltiges Getreide'
+    ],
+    'prices':{  
+      'pupils':None,
+      'others':5.2,
+      'employees':3.7,
+      'students':1.9
+    },
+    'category':'Pastateller',
+    'name':'Tomatensoße'
+  },
+  {  
+    'id':3035694,
+    'notes':[  
+      'mit Antioxidationsmitteln',
+      'mit Farbstoff',
+      'Veganes Gericht',
+      'Soja',
+      'Milch/ Milchzucker',
+      'glutenhaltiges Getreide'
+    ],
+    'prices':{  
+      'pupils':None,
+      'others':5.2,
+      'employees':3.7,
+      'students':1.9
+    },
+    'category':'Pastateller',
+    'name':'Currysoße'
+  },
+  {  
+    'id':3035695,
+    'notes':[  
+      'mit Antioxidationsmitteln',
+      'mit Farbstoff',
+      'Veganes Gericht',
+      'Soja',
+      'Milch/ Milchzucker',
+      'glutenhaltiges Getreide'
+    ],
+    'prices':{  
+      'pupils':None,
+      'others':5.2,
+      'employees':3.7,
+      'students':1.9
+    },
+    'category':'Pastateller',
+    'name':'Tomatensoße mit Ingwer'
+  },
+  {  
+    'id':3035696,
+    'notes':[  
+      'Geflügel',
+      'Schwein',
+      'Sellerie',
+      'Milch/ Milchzucker',
+      'glutenhaltiges Getreide',
+      'mit Antioxidationsmitteln',
+      'mit Konservierungsstoff',
+      'mit Farbstoff'
+    ],
+    'prices':{  
+      'pupils':None,
+      'others':3.25,
+      'employees':2.65,
+      'students':1.5
+    },
+    'category':'Pizza',
+    'name':'Pizza Italia'
+  },
+  {  
+    'id':3035697,
+    'notes':[  
+      'Geflügel',
+      'Schwein',
+      'Sellerie',
+      'Milch/ Milchzucker',
+      'glutenhaltiges Getreide',
+      'mit Antioxidationsmitteln',
+      'mit Konservierungsstoff',
+      'mit Farbstoff'
+    ],
+    'prices':{  
+      'pupils':None,
+      'others':3.25,
+      'employees':2.65,
+      'students':1.5
+    },
+    'category':'Pizza',
+    'name':'Pizza Venedig'
+  },
+  {  
+    'id':3035698,
+    'notes':[  
+      'Geflügel',
+      'Schwein',
+      'Sellerie',
+      'Milch/ Milchzucker',
+      'glutenhaltiges Getreide',
+      'mit Antioxidationsmitteln',
+      'mit Konservierungsstoff',
+      'mit Farbstoff'
+    ],
+    'prices':{  
+      'pupils':None,
+      'others':3.25,
+      'employees':2.65,
+      'students':1.5
+    },
+    'category':'Pizza',
+    'name':'Pizza Heideland'
+  }
+]
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="openmensa/" class="btn btn-neutral float-right" title="OpenMensa">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/brennerm/openmensa-api/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+      
+        <span style="margin-left: 15px"><a href="openmensa/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '.';</script>
+    <script src="./js/theme.js"></script>
+      <script src="./search/require.js"></script>
+      <script src="./search/search.js"></script>
+
+</body>
+</html>
+
+<!--
+MkDocs version : 0.17.2
+Build Date UTC : 2018-02-04 19:18:35
+-->

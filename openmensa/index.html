@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>OpenMensa - OpenMensa API v2 Python wrapper</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "OpenMensa";
+    var mkdocs_page_input_path = "openmensa.md";
+    var mkdocs_page_url = "/openmensa/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> OpenMensa API v2 Python wrapper</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">API Documentation</span>
+    <ul class="subnav">
+                <li class=" current">
+                    
+    <a class="current" href="./">OpenMensa</a>
+    <ul class="subnav">
+            
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">OpenMensa API v2 Python wrapper</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>API Documentation &raquo;</li>
+        
+      
+    
+    <li>OpenMensa</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/brennerm/openmensa-api/edit/master/docs/openmensa.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="openmensa.OpenMensa">OpenMensa</h1>
+
+<pre><code class="python">OpenMensa(self, /, *args, **kwargs)
+</code></pre>
+
+<p>Python wrapper for OpenMensa API v2
+<h2 id="openmensa.OpenMensa.get_all">get_all</h2></p>
+<pre><code class="python">OpenMensa.get_all(method, *args, **kwargs)
+</code></pre>
+
+<p>Gets all results for given query method</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>method (callable)</strong>: OpenMensa method, one of get_canteens, get_canteen_days, get_meals_by_day</li>
+<li><strong>args (list)</strong>: positional arguments for method</li>
+<li><strong>kwargs (dict)</strong>: keyword arguments for method</li>
+</ul>
+<h2 id="openmensa.OpenMensa.get_canteens">get_canteens</h2>
+
+<pre><code class="python">OpenMensa.get_canteens(near_lat_lng=None, near_dist=None, canteen_ids=None, has_coords=None, page=None, limit=None)
+</code></pre>
+
+<p>Get a list of canteens</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>near_lat_lng (tuple)</strong>: position 2 tuple to define search center, example (52.39, 13.12)</li>
+<li><strong>near_dist (float)</strong>: search distance in km for near_lat_lng, default=10</li>
+<li><strong>canteen_ids (list)</strong>: list of canteen ids to query</li>
+<li><strong>has_coords (bool)</strong>: whether to return canteens with or without coordinations</li>
+<li><strong>page (int)</strong>: page index to query</li>
+<li><strong>limit (int)</strong>: restrict response to this amount of results</li>
+</ul>
+<h2 id="openmensa.OpenMensa.get_canteen">get_canteen</h2>
+
+<pre><code class="python">OpenMensa.get_canteen(canteen_id)
+</code></pre>
+
+<p>Get a single canteen identified by canteen_id</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>canteen_id (int)</strong>: id of canteen to query</li>
+</ul>
+<h2 id="openmensa.OpenMensa.get_canteen_days">get_canteen_days</h2>
+
+<pre><code class="python">OpenMensa.get_canteen_days(canteen_id, start_date=None, page=None, limit=None)
+</code></pre>
+
+<p>Get all canteen days</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>canteen_id (int)</strong>: id of canteen to query</li>
+<li><strong>start_date (str)</strong>: the date to begin with</li>
+<li><strong>page (int)</strong>: page index to query</li>
+<li><strong>limit (int)</strong>: restrict response to this amount of results</li>
+</ul>
+<h2 id="openmensa.OpenMensa.get_canteen_day">get_canteen_day</h2>
+
+<pre><code class="python">OpenMensa.get_canteen_day(canteen_id, date)
+</code></pre>
+
+<p>Get single canteen day</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>canteen_id (int)</strong>: id of canteen to query</li>
+<li><strong>date (str)</strong>: the date to query</li>
+</ul>
+<h2 id="openmensa.OpenMensa.get_meals_by_day">get_meals_by_day</h2>
+
+<pre><code class="python">OpenMensa.get_meals_by_day(canteen_id, date, page=None, limit=None)
+</code></pre>
+
+<p>Get all meals for a specific day</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>canteen_id (int)</strong>: id of canteen to query</li>
+<li><strong>date (str)</strong>: date to get the meals for, format= YYYY-MM-DD</li>
+<li><strong>page (int)</strong>: page index to query</li>
+<li><strong>limit (int)</strong>: restrict response to this amount of results</li>
+</ul>
+<h2 id="openmensa.OpenMensa.get_meal">get_meal</h2>
+
+<pre><code class="python">OpenMensa.get_meal(canteen_id, date, meal_id)
+</code></pre>
+
+<p>Get single meal</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>canteen_id (int)</strong>: id of canteen to query</li>
+<li><strong>date (str)</strong>: date to get the meal for, format= YYYY-MM-DD</li>
+<li><strong>meal_id (int)</strong>: id of meal to query</li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href=".." class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/brennerm/openmensa-api/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href=".." style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/require.js"></script>
+      <script src="../search/search.js"></script>
+
+</body>
+</html>
