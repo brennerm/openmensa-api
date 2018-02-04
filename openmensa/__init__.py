@@ -13,12 +13,14 @@ except ImportError:
 
 
 class OpenMensa:
-    ENDPOINT = 'http://openmensa.org/api/v2'
+    """Python wrapper for OpenMensa API v2"""
+
+    __ENDPOINT = 'http://openmensa.org/api/v2'
 
     @staticmethod
     def __make_json_request(path, params=None):
         url = os.path.join(
-            OpenMensa.ENDPOINT,
+            OpenMensa.__ENDPOINT,
             path
         )
 
@@ -35,6 +37,14 @@ class OpenMensa:
 
     @staticmethod
     def get_all(method, *args, **kwargs):
+        """Gets all results for given query method
+
+        # Arguments
+
+        method (callable): OpenMensa method, one of: canteens, canteen_days, meals_per_day
+        args (list): positional arguments for method
+        kwargs (dict): keyword arguments for method
+        """
         res = []
         kwargs['page'] = 1
 
