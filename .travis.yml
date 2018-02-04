@@ -7,6 +7,20 @@ python:
   - "3.5"
   - "3.6"
 
+install:
+  - pip install -r requirements-doc.txt
+
 script:
   - python setup.py install
   - python -c 'import openmensa'
+  - cd doc
+  - pydocmd build
+  - cd ..
+
+deploy:
+ provider: pages
+ skip_cleanup: true
+ github_token: $GITHUB_TOKEN
+ local_dir: doc/_build/site
+ on:
+   branch: master
