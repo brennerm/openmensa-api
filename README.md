@@ -5,7 +5,7 @@ This project is a Python wrapper for the [OpenMensa API v2](http://doc.openmensa
 ```
 $ pip install openmensa-api
 ```
-## Documentation
+## [API Documentation](https://brennerm.github.io/openmensa-api/openmensa/)
 
 ## Example
 ```python
