@@ -41,7 +41,7 @@ class OpenMensa:
 
         # Arguments
 
-        method (callable): OpenMensa method, one of: get_canteens, get_canteen_days, get_meals_by_day
+        method (callable): OpenMensa method, one of get_canteens, get_canteen_days, get_meals_by_day
         args (list): positional arguments for method
         kwargs (dict): keyword arguments for method
         """
@@ -66,7 +66,7 @@ class OpenMensa:
         # Arguments
 
         near_lat_lng (tuple): position 2 tuple to define search center, example (52.39, 13.12)
-        near_dist (float): search distance in km for near_lat_lng, default: 10
+        near_dist (float): search distance in km for near_lat_lng, default=10
         canteen_ids (list): list of canteen ids to query
         has_coords (bool): whether to return canteens with or without coordinations
         page (int): page index to query
@@ -156,7 +156,7 @@ class OpenMensa:
         # Arguments
 
         canteen_id (int): id of canteen to query
-        date (str): date to get the meals for, format: YYYY-MM-DD
+        date (str): date to get the meals for, format= YYYY-MM-DD
         page (int): page index to query
         limit (int): restrict response to this amount of results
         """
@@ -183,7 +183,7 @@ class OpenMensa:
         # Arguments
 
         canteen_id (int): id of canteen to query
-        date (str): date to get the meal for, format: YYYY-MM-DD
+        date (str): date to get the meal for, format= YYYY-MM-DD
         meal_id (int): id of meal to query
         """
         return OpenMensa.__make_json_request(
