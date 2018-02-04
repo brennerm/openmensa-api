@@ -2,17 +2,12 @@ language: python
 python:
   - 3.6
 
-services:
-  - docker
-
-sudo: required
-
 install:
   - pip install -r requirements-doc.txt
 
 script:
-  - docker run python:2.7 pip install . && python -c "import openmensa"
-  - docker run python:3.6 pip install . && python -c "import openmensa"
+  - pip install .
+  - python -c "import openmensa"
   - cd doc
   - pydocmd build
   - cd ..
