@@ -15,7 +15,7 @@ except ImportError:
 class OpenMensa:
     """Python wrapper for OpenMensa API v2"""
 
-    __ENDPOINT = 'http://openmensa.org/api/v2'
+    __ENDPOINT = 'https://openmensa.org/api/v2'
 
     @staticmethod
     def __make_json_request(path, params=None):
